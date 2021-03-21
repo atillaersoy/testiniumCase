@@ -105,7 +105,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
     }
     public static void addToCart() {
-
+        //Product page, check if gittigidiyor notification pop-up presents if present close it than add product to the cart and go to cart
         try {
             WebDriverWait wait = new WebDriverWait(driver, 10);
             setup.setProductPrice(setup.productPrice().getText());
@@ -131,6 +131,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
     }
     public static void comparePrices() {
+        //Compare the listing price with cart price (Please Note that, while creating project there was 150TL discount on cart)
         try {
             String productPrice, cartPrice;
             productPrice = setup.getProductPrice();
@@ -149,6 +150,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
         }
     }
     public static void increaseQty(){
+        //Increase the quantity of the product on the cart
         try {
             WebDriverWait wait = new WebDriverWait(driver, 10);
             WebElement dropdown = driver.findElement(By.cssSelector(".gg-input-select > .amount"));
@@ -171,6 +173,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
         }
         }
     public static void emptyCart()  {
+        //empty the cart and check 
         try{
             WebDriverWait wait = new WebDriverWait(driver, 10);
             setup.deleteItem().click();
