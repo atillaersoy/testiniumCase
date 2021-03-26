@@ -109,9 +109,11 @@ import static java.util.concurrent.TimeUnit.SECONDS;
         try {
             WebDriverWait wait = new WebDriverWait(driver, 10);
             setup.setProductPrice(setup.productPrice().getText());
-            if (driver.findElements( By.cssSelector(".wis-clsbtn-82204") ).size() != 0)
-                log.info("GittiGidiyor Notification Found, Closing to avoid any interference");
-                setup.annyoingNotification().click();
+            if (driver.findElements(By.cssSelector(".wis-clsbtn-82204")).size() != 0)
+            {
+               log.info("GittiGidiyor Notification Found, Closing to avoid any interference");
+               setup.annyoingNotification().click();
+            }
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("arguments[0].scrollIntoView(true);", setup.addToCart()); //scroll to the add to cart button for avoiding any screen resolution faults.
             wait.until(ExpectedConditions.elementToBeClickable(setup.addToCart()));
